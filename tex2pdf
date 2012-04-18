@@ -1,8 +1,10 @@
 #!/usr/local/bin/ruby
 # encoding: UTF-8
+NUMBER = '1029232337'
+NAME = 'KazatoSugimoto'
 unless ARGV[0] =~ /\.tex/
   puts 'texちゃうやん'
   return
 end
 file_name = ARGV[0].gsub(/(.*)\.tex/, '\1')
-`platex #{file_name}.tex && dvipdfmx #{file_name}.dvi && open #{file_name}.pdf`
+`platex #{file_name}.tex && dvipdfmx #{file_name}.dvi && cp #{file_name}.pdf  #{NUMBER}-#{NAME}-#{file_name}.pdf && open #{NUMBER}-#{NAME}-#{file_name}.pdf`
